@@ -335,7 +335,7 @@ function initCardsCarousel() {
   const dots = [...document.querySelectorAll(".portfolio-nav-dot")];
   if (!carousel || !track || !cards.length) return;
 
-  const PAGE_COUNT = Math.min(3, cards.length);
+  let pageCount = 3;
   let currentPage = 0;
   let maxOffset = 0;
   let pageOffsets = [0];
@@ -344,12 +344,17 @@ function initCardsCarousel() {
   let dragStartOffset = 0;
   let resizeTimer;
 
+  function isMobile() { return window.innerWidth <= 600; }
+
   function getViewWidth() {
     const style = getComputedStyle(carousel);
     return carousel.clientWidth - parseFloat(style.paddingLeft) - parseFloat(style.paddingRight);
   }
 
   function measure() {
+    const mobile = isMobile();
+    pageCount = mobile ? cards.length : Math.min(3, cards.length);
+
     const viewWidth = getViewWidth();
     const trackRect = track.getBoundingClientRect();
     const metrics = cards.map((card) => {
@@ -361,17 +366,23 @@ function initCardsCarousel() {
     maxOffset = Math.max(0, Math.round(trackWidth - viewWidth));
 
     pageOffsets = [];
-    for (let p = 0; p < PAGE_COUNT; p++) {
-      if (p === 0) {
-        pageOffsets.push(0);
-      } else if (p === PAGE_COUNT - 1) {
-        pageOffsets.push(maxOffset);
-      } else {
-        const innerFirst = metrics[1];
-        const innerLast = metrics[cards.length - 2];
-        const groupCenter = (innerFirst.left + innerLast.left + innerLast.width) / 2;
-        const target = groupCenter - viewWidth / 2;
-        pageOffsets.push(Math.max(0, Math.min(Math.round(target), maxOffset)));
+    if (mobile) {
+      for (let p = 0; p < pageCount; p++) {
+        pageOffsets.push(Math.max(0, Math.min(Math.round(metrics[p].left), maxOffset)));
+      }
+    } else {
+      for (let p = 0; p < pageCount; p++) {
+        if (p === 0) {
+          pageOffsets.push(0);
+        } else if (p === pageCount - 1) {
+          pageOffsets.push(maxOffset);
+        } else {
+          const innerFirst = metrics[1];
+          const innerLast = metrics[cards.length - 2];
+          const groupCenter = (innerFirst.left + innerLast.left + innerLast.width) / 2;
+          const target = groupCenter - viewWidth / 2;
+          pageOffsets.push(Math.max(0, Math.min(Math.round(target), maxOffset)));
+        }
       }
     }
   }
@@ -382,7 +393,7 @@ function initCardsCarousel() {
 
   function updateUI() {
     dots.forEach((dot, i) => {
-      if (i >= PAGE_COUNT) {
+      if (i >= pageCount) {
         dot.hidden = true;
         return;
       }
@@ -392,12 +403,12 @@ function initCardsCarousel() {
       dot.setAttribute("aria-selected", active ? "true" : "false");
     });
     if (prevBtn) prevBtn.disabled = currentPage === 0;
-    if (nextBtn) nextBtn.disabled = currentPage === PAGE_COUNT - 1;
+    if (nextBtn) nextBtn.disabled = currentPage === pageCount - 1;
   }
 
   function goToPage(page, animate = true) {
     measure();
-    page = Math.max(0, Math.min(page, PAGE_COUNT - 1));
+    page = Math.max(0, Math.min(page, pageCount - 1));
     currentPage = page;
     track.classList.toggle("is-dragging", !animate);
     applyOffset(pageOffsets[page] ?? 0);
