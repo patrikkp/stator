@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Stator IT — premium IT rješenja za Našice i okolicu. Infrastruktura, mreže, web i digitalna podrška za lokalne tvrtke." />
+  <title>Stator IT — IT rješenja za Našice</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin=""/>
+</head>
+<body>
+
+  <div class="preloader" id="preloader">
+    <div class="preloader-inner">
+      <img src="assets/logo-light.png" alt="Stator IT" class="preloader-logo" />
+      <div class="preloader-bar"><div class="preloader-bar-fill"></div></div>
+    </div>
+  </div>
+
+  <div class="site-header" id="siteHeader">
+    <div class="header-float">
+      <div class="header-utility">
+        <a href="#kontakt" class="header-utility-item" title="Udaljena podrška">
+          <i class="fa-solid fa-desktop" aria-hidden="true"></i>
+          <span>Udaljena podrška</span>
+        </a>
+        <a href="tel:+38542123456" class="header-utility-item" title="Nazovite nas">
+          <i class="fa-solid fa-phone" aria-hidden="true"></i>
+          <span>+385 42 123 456</span>
+        </a>
+        <a href="mailto:info@statorit.hr" class="header-utility-item" title="Pošaljite mail">
+          <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+          <span>info@statorit.hr</span>
+        </a>
+      </div>
+      <header class="nav-pill" id="nav">
+        <a href="#hero" class="nav-logo">
+          <img src="assets/logo2.png" alt="Stator IT" />
+        </a>
+        <nav class="nav-links">
+          <a href="#usluge">Usluge</a>
+          <a href="#kontakt">Kontakt</a>
+        </nav>
+        <a href="#kontakt" class="nav-cta">Zatražite ponudu</a>
+        <button class="nav-toggle" id="navToggle" aria-label="Otvori izbornik" aria-expanded="false">
+          <span></span><span></span>
+        </button>
+      </header>
+    </div>
+  </div>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-utility">
+      <a href="#kontakt"><i class="fa-solid fa-desktop"></i> Udaljena podrška</a>
+      <a href="tel:+38542123456"><i class="fa-solid fa-phone"></i> +385 42 123 456</a>
+      <a href="mailto:info@statorit.hr"><i class="fa-solid fa-envelope"></i> info@statorit.hr</a>
+    </div>
+    <a href="#usluge">Usluge</a>
+    <a href="#kontakt">Kontakt</a>
+  </div>
+
+  <main>
+
+    <section class="hero" id="hero">
+      <div class="hero-noise" aria-hidden="true"></div>
+      <div class="hero-orb" aria-hidden="true"></div>
+      <img src="assets/lijevomaskota.png" alt="Stator IT maskota" class="hero-illustration hero-illustration--desktop" width="900" height="900" loading="eager" />
+
+      <div class="hero-inner">
+        <div class="hero-topbar">
+          <div class="hero-topbar-left">
+            <span class="hero-num">01</span>
+            <span class="hero-sep">—</span>
+            <span class="hero-topbar-text">Stator IT · Našice</span>
+          </div>
+          <div class="hero-topbar-right">
+            <span class="hero-dot"></span>
+            <span class="hero-topbar-text">Dostupni za projekte</span>
+          </div>
+        </div>
+
+        <div class="hero-rule hero-rule--top" aria-hidden="true"></div>
+
+        <div class="hero-body">
+          <h1 class="hero-title">
+            <span class="hero-title-row">
+              <span class="hero-title-mask"><span class="hero-title-word">IT</span></span>
+              <span class="hero-title-mask"><span class="hero-title-word">rješenja</span></span>
+            </span>
+            <span class="hero-title-row hero-title-row--italic">
+              <span class="hero-title-mask"><span class="hero-title-word">i digitalne</span></span>
+            </span>
+            <span class="hero-title-row">
+              <span class="hero-title-mask"><span class="hero-title-word">usluge</span></span>
+            </span>
+          </h1>
+        </div>
+
+        <div class="hero-rule hero-rule--bottom" aria-hidden="true"></div>
+
+        <img src="assets/doljemaskota.png" alt="Stator IT maskota" class="hero-illustration hero-illustration--mobile" width="600" height="700" loading="eager" />
+
+        <div class="hero-foot">
+          <p class="hero-foot-desc">Unaprijedite svoje poslovanje uz<br>StatorIT tehnologije i stručnu podršku</p>
+          <div class="hero-foot-right">
+            <a href="#kontakt" class="hero-cta">
+              <span>Zatražite ponudu</span>
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-scroll" aria-hidden="true">
+        <div class="hero-scroll-bar"><div class="hero-scroll-fill"></div></div>
+        <span class="hero-scroll-label">scroll</span>
+      </div>
+    </section>
+
+    <section class="services" id="usluge">
+      <div class="services-header">
+        <span class="section-label">Što radimo</span>
+        <p class="services-intro split-words">
+          Cjelovita IT podrška za poslovanje — od temelja do digitalnog prisustva
+        </p>
+      </div>
+
+      <div class="services-grid">
+        <article class="service-card">
+          <div class="service-icon" aria-hidden="true">
+            <i class="fa-solid fa-server"></i>
+          </div>
+          <h4>IT infrastruktura</h4>
+          <p>Serveri, radne stanice, virtualizacija i backup sustavi.</p>
+          <a href="#kontakt" class="service-more">Više</a>
+        </article>
+        <article class="service-card">
+          <div class="service-icon" aria-hidden="true">
+            <i class="fa-solid fa-network-wired"></i>
+          </div>
+          <h4>Mrežna rješenja</h4>
+          <p>LAN/WAN, Wi-Fi, firewall i zaštita podataka.</p>
+          <a href="#kontakt" class="service-more">Više</a>
+        </article>
+        <article class="service-card">
+          <div class="service-icon" aria-hidden="true">
+            <i class="fa-solid fa-laptop-code"></i>
+          </div>
+          <h4>Web &amp; digital</h4>
+          <p>Poslovne stranice, e-trgovina i digitalne integracije.</p>
+          <a href="#kontakt" class="service-more">Više</a>
+        </article>
+        <article class="service-card">
+          <div class="service-icon" aria-hidden="true">
+            <i class="fa-solid fa-headset"></i>
+          </div>
+          <h4>Podrška &amp; održavanje</h4>
+          <p>Monitoring, održavanje i brza lokalna intervencija.</p>
+          <a href="#kontakt" class="service-more">Više</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="showcase" id="fiskator">
+      <div class="showcase-inner">
+        <div class="showcase-text">
+          <span class="showcase-label">IZDVOJENO</span>
+          <h2 class="showcase-title">
+            <span class="showcase-title-logo-wrap">
+              <img src="assets/FiskatorLogoApp.png" alt="F" class="showcase-title-logo" />
+            </span><span class="showcase-title-rest">ISKATOR</span>
+          </h2>
+          <div class="sc-text-inner" id="scInner">
+            <p class="showcase-tagline" id="scTagline">Fiskalna blagajna za sve djelatnosti</p>
+            <p class="showcase-desc" id="scDesc">
+              Naš POS program za fiskalizaciju 2.0 — moderan, brz i prilagođen
+              hrvatskim propisima. Upravljajte prodajom, računima i izvještajima
+              s jednog mjesta, bez komplikacija.
+            </p>
+            <ul class="showcase-features" id="scFeatures">
+              <li><i class="fa-solid fa-check"></i> Fiskalizacija 2.0 u skladu s propisima</li>
+              <li><i class="fa-solid fa-check"></i> POS prodaja — gotovina, kartica, transakcijski</li>
+              <li><i class="fa-solid fa-check"></i> Artikli, popusti, dnevni izvještaji</li>
+              <li><i class="fa-solid fa-check"></i> Lokalna instalacija i podrška</li>
+            </ul>
+            <a href="#kontakt" class="btn btn-primary showcase-cta" id="scCta">Zatražite demo</a>
+          </div>
+        </div>
+        <div class="showcase-visual">
+          <div class="sc-carousel">
+            <div class="sc-track-wrap">
+              <div class="sc-track">
+
+                <!-- Slide 1: Desktop aplikacija -->
+                <div class="sc-slide">
+                  <span class="sc-tag"><i class="fa-solid fa-display"></i> Desktop aplikacija</span>
+                  <div class="showcase-image-wrap">
+                    <img src="assets/fiskator.png" alt="Fiskator desktop" class="showcase-image" />
+                  </div>
+                </div>
+
+                <!-- Slide 2: POS terminal -->
+                <div class="sc-slide">
+                  <span class="sc-tag"><i class="fa-solid fa-tablet-screen-button"></i> POS terminal</span>
+                  <div class="sc-pos-wrap">
+                    <img src="assets/pos-terminal.png" alt="Fiskator POS handheld terminal" class="sc-pos-photo" />
+                  </div>
+                </div>
+
+                <!-- Slide 3: Mobilna aplikacija -->
+                <div class="sc-slide">
+                  <span class="sc-tag"><i class="fa-solid fa-mobile-screen"></i> Mobilna aplikacija</span>
+                  <div class="sc-phone-wrap">
+                    <div class="sc-phone">
+                      <div class="sc-phone-notch"></div>
+                      <div class="sc-phone-screen">
+                        <div class="sc-mock-app-bar"></div>
+                        <div class="sc-mock-app-hero"></div>
+                        <div class="sc-mock-app-cards">
+                          <div class="sc-mock-app-card"></div>
+                          <div class="sc-mock-app-card"></div>
+                        </div>
+                        <div class="sc-mock-text-rows">
+                          <div class="sc-mock-line w70"></div>
+                          <div class="sc-mock-line w50"></div>
+                        </div>
+                        <div class="sc-mock-app-btn"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="sc-controls">
+              <button class="sc-btn sc-prev" aria-label="Prethodni">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 3L5 8L10 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+              <div class="sc-dots"></div>
+              <button class="sc-btn sc-next" aria-label="Sljedeći">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="portfolio" id="klijenti">
+      <div class="portfolio-inner">
+        <div class="portfolio-title-scene">
+          <h2 class="portfolio-title">Naši</h2>
+          <h2 class="portfolio-title accent-text">klijenti</h2>
+        </div>
+
+        <div class="portfolio-clients">
+          <p class="clients-label">Partneri iz zajednice</p>
+          <div class="clients-marquee">
+            <div class="clients-track">
+              <div class="client-logo"><img src="assets/ebsw.png" alt="EBSW" width="160" height="64" /></div>
+              <div class="client-logo"><img src="assets/branch2.png" alt="Branch 2" width="160" height="64" /></div>
+              <div class="client-logo"><img src="assets/pustinja.png" alt="Pustinja" width="160" height="64" /></div>
+              <div class="client-logo"><img src="assets/samarice.png" alt="Samarice" width="160" height="64" /></div>
+              <div class="client-logo"><img src="assets/haludek.png" alt="Haludek" width="160" height="64" /></div>
+              <div class="client-logo"><img src="assets/provar.png" alt="Provar" width="160" height="64" /></div>
+              <div class="client-logo"><img src="assets/automotorefres.png" alt="Automoto Refres" width="160" height="64" /></div>
+              <div class="client-logo" aria-hidden="true"><img src="assets/ebsw.png" alt="" width="160" height="64" /></div>
+              <div class="client-logo" aria-hidden="true"><img src="assets/branch2.png" alt="" width="160" height="64" /></div>
+              <div class="client-logo" aria-hidden="true"><img src="assets/pustinja.png" alt="" width="160" height="64" /></div>
+              <div class="client-logo" aria-hidden="true"><img src="assets/samarice.png" alt="" width="160" height="64" /></div>
+              <div class="client-logo" aria-hidden="true"><img src="assets/haludek.png" alt="" width="160" height="64" /></div>
+              <div class="client-logo" aria-hidden="true"><img src="assets/provar.png" alt="" width="160" height="64" /></div>
+              <div class="client-logo" aria-hidden="true"><img src="assets/automotorefres.png" alt="" width="160" height="64" /></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer" id="kontakt">
+      <div class="footer-hero">
+        <div class="footer-title-wrap">
+          <h2 class="footer-title footer-title-animation">Kontaktirajte nas</h2>
+        </div>
+        <p class="footer-sub">Spremni za sljedeći korak? Javite nam se — odgovaramo u roku 24 sata.</p>
+      </div>
+
+      <div class="footer-grid">
+        <div class="footer-contact">
+          <div class="contact-block">
+            <span class="contact-label">Lokacija</span>
+            <p>Franjevački trg 8<br/>42000 Našice, Hrvatska</p>
+          </div>
+          <div class="contact-block">
+            <span class="contact-label">Telefon</span>
+            <p><a href="tel:+38542123456">+385 42 123 456</a></p>
+          </div>
+          <div class="contact-block">
+            <span class="contact-label">E-mail</span>
+            <p><a href="mailto:info@statorit.hr">info@statorit.hr</a></p>
+          </div>
+          <div class="contact-block">
+            <span class="contact-label">Radno vrijeme</span>
+            <p>Pon – Pet: 08:00 – 17:00<br/>Hitne intervencije: 24/7</p>
+          </div>
+        </div>
+
+        <form class="footer-form" onsubmit="return false;">
+          <label>
+            <span>Ime i prezime</span>
+            <input type="text" placeholder="Vaše ime" />
+          </label>
+          <label>
+            <span>E-mail</span>
+            <input type="email" placeholder="vas@email.hr" />
+          </label>
+          <label>
+            <span>Poruka</span>
+            <textarea rows="4" placeholder="Opišite vaš IT izazov..."></textarea>
+          </label>
+          <button type="submit" class="btn btn-primary">Pošaljite upit</button>
+        </form>
+      </div>
+
+      <div class="footer-map">
+        <div id="footerMap"></div>
+      </div>
+
+      <div class="footer-bottom">
+        <a href="#hero" class="footer-logo">
+          <img src="assets/logo-light.png" alt="Stator IT" />
+        </a>
+        <p class="copyright">© 2026 Stator IT. Sva prava pridržana.</p>
+        <div class="footer-links">
+          <a href="#">Privatnost</a>
+          <a href="#">Uvjeti korištenja</a>
+        </div>
+      </div>
+    </footer>
+
+  </main>
+
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+      }
+    }
+  </script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+  <script>
+    window.addEventListener('DOMContentLoaded', function () {
+      var map = L.map('footerMap', {
+        center: [45.4908, 18.0989],
+        zoom: 14,
+        scrollWheelZoom: false,
+        zoomControl: true,
+        attributionControl: true,
+      });
+
+      L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+        attribution: '© <a href="https://www.openstreetmap.org/copyright">OSM</a> © <a href="https://carto.com/attributions">CARTO</a>',
+        subdomains: 'abcd',
+        maxZoom: 19,
+      }).addTo(map);
+
+      var goldIcon = L.divIcon({
+        className: '',
+        html: '<div class="map-pin"></div>',
+        iconSize: [18, 18],
+        iconAnchor: [9, 9],
+        popupAnchor: [0, -14],
+      });
+
+      L.marker([45.4908, 18.0989], { icon: goldIcon })
+        .addTo(map)
+        .bindPopup('<strong>Stator IT</strong><br>Našice, Hrvatska');
+    });
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+  <script type="module" src="hero-3d.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
