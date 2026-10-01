@@ -634,6 +634,16 @@ button { font: inherit; border: none; background: none; cursor: pointer; }
   opacity: 0.7;
 }
 
+/* ── POS terminal mockup ── */
+.sc-pos-wrap {
+  display: flex; justify-content: center; align-items: flex-start;
+  padding: 0.5rem 0;
+}
+.sc-pos-photo {
+  width: 100%; max-width: 420px; height: auto;
+  filter: drop-shadow(0 24px 64px rgba(0,0,0,0.5));
+}
+
 /* FISKATOR SHOWCASE */
 .showcase {
   position: relative; background: var(--bg-main);
@@ -914,6 +924,19 @@ button { font: inherit; border: none; background: none; cursor: pointer; }
 @media (max-width: 600px) {
   .portfolio-carousel { padding-inline: 1rem; }
   .portfolio-card { flex: 0 0 calc(100vw - 2rem); max-width: calc(100vw - 2rem); }
+  .portfolio-clients { padding: 1.75rem 0 1.75rem; }
+  .clients-label { margin-bottom: 1rem; font-size: 0.62rem; }
+  .clients-marquee { mask-image: linear-gradient(90deg, transparent, black 4%, black 96%, transparent); }
+  .clients-track { gap: 1.5rem; }
+  .client-logo { width: 150px; height: 84px; padding: 0; }
+  .client-logo img { width: 142px; height: 68px; max-width: none; max-height: none; object-fit: contain; }
+  .client-logo img[src*="ebsw"] { transform: scale(1.4); }
+  .client-logo img[src*="branch2"] { transform: scale(1.15); }
+  .client-logo img[src*="pustinja"] { transform: scale(1.05); }
+  .client-logo img[src*="samarice"] { transform: scale(1.05); }
+  .client-logo img[src*="haludek"] { transform: scale(1.4); }
+  .client-logo img[src*="provar"] { transform: scale(3); }
+  .client-logo img[src*="automotorefres"] { transform: none; }
   .footer-grid { grid-template-columns: 1fr; gap: 3rem; }
   .footer-contact { grid-template-columns: 1fr; }
   .footer-bottom { flex-direction: column; text-align: center; }

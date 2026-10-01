@@ -113,7 +113,7 @@ function initShowcase() {
     toggleActions: "play none none none",
   });
 
-  gsap.from(".sc-text-inner > *", {
+  gsap.from(".showcase-label, .showcase-title, .sc-text-inner > *", {
     autoAlpha: 0, y: 24, stagger: 0.08, duration: 0.75,
     scrollTrigger: trigger(".showcase"),
   });
@@ -136,8 +136,6 @@ function initShowcaseCarousel() {
   if (!track || !slides.length) return;
 
   const scInner    = document.getElementById("scInner");
-  const scLabel    = document.getElementById("scLabel");
-  const scTitle    = document.getElementById("scTitle");
   const scTagline  = document.getElementById("scTagline");
   const scDesc     = document.getElementById("scDesc");
   const scFeatures = document.getElementById("scFeatures");
@@ -145,8 +143,6 @@ function initShowcaseCarousel() {
 
   const slideData = [
     {
-      label: "IZDVOJENO",
-      title: '<span class="showcase-title-logo-wrap"><img src="assets/FiskatorLogoApp.png" alt="F" class="showcase-title-logo" /></span><span class="showcase-title-rest">ISKATOR</span>',
       tagline: "Fiskalna blagajna za sve djelatnosti",
       desc: "Naš POS program za fiskalizaciju 2.0 — moderan, brz i prilagođen hrvatskim propisima. Upravljajte prodajom, računima i izvještajima s jednog mjesta, bez komplikacija.",
       features: [
@@ -158,21 +154,17 @@ function initShowcaseCarousel() {
       cta: "Zatražite demo",
     },
     {
-      label: "WEB RAZVOJ",
-      title: "Web stranica",
-      tagline: "Moderna prisutnost na internetu",
-      desc: "Dizajniramo i razvijamo web stranice koje ostavljaju dojam — brze, responzivne i optimizirane za pretraživače. Svaki projekt rađen po mjeri klijenta.",
+      tagline: "Naplata s dlana, gdje god poslujete",
+      desc: "Prijenosni Android POS terminal povezan s Fiskator sustavom — naplaćujte karticom i gotovinom, ispisujte fiskalne račune i pratite promet u stvarnom vremenu, bez fiksne blagajne.",
       features: [
-        "Responzivan dizajn za sve uređaje",
-        "SEO optimizacija i brzina učitavanja",
-        "CMS — jednostavno upravljanje sadržajem",
-        "Hosting i tehnička podrška",
+        "Kartično i gotovinsko plaćanje na jednom uređaju",
+        "Ugrađeni fiskalni pisač",
+        "Idealno za teren — dostava, sajmovi, ugostiteljstvo",
+        "Sinkronizacija s Fiskator sustavom u stvarnom vremenu",
       ],
       cta: "Zatražite ponudu",
     },
     {
-      label: "MOBILNI RAZVOJ",
-      title: "Mobilna aplikacija",
       tagline: "Vaš brand u džepu korisnika",
       desc: "Razvijamo native i cross-platform mobilne aplikacije za iOS i Android. Od ideje i dizajna do objave na App Storeu i Google Playu — sve na jednom mjestu.",
       features: [
@@ -208,8 +200,6 @@ function initShowcaseCarousel() {
   }
 
   function applyText(data) {
-    if (scLabel)    scLabel.textContent = data.label;
-    if (scTitle)    scTitle.innerHTML = data.title;
     if (scTagline)  scTagline.textContent = data.tagline;
     if (scDesc)     scDesc.textContent = data.desc;
     if (scFeatures) scFeatures.innerHTML = data.features
