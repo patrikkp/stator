@@ -5,12 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Stator IT — premium IT rješenja za Našice i okolicu. Infrastruktura, mreže, web i digitalna podrška za lokalne tvrtke." />
   <title>Stator IT — IT rješenja za Našice</title>
+  <meta name="theme-color" content="#070b12" />
+  <link rel="icon" href="assets/favicon/favicon.ico" sizes="any" />
+  <link rel="icon" href="assets/favicon/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="assets/favicon/favicon-96x96.png" type="image/png" sizes="96x96" />
+  <link rel="apple-touch-icon" href="assets/favicon/apple-touch-icon.png" />
+  <link rel="manifest" href="assets/favicon/site.webmanifest" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
   <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin=""/>
 </head>
 <body>
 
@@ -24,13 +29,17 @@
   <div class="site-header" id="siteHeader">
     <div class="header-float">
       <div class="header-utility">
-        <a href="#kontakt" class="header-utility-item" title="Udaljena podrška">
+        <a href="rustdesk.html" target="_blank" rel="noopener noreferrer" class="header-utility-item" title="Udaljena podrška">
           <i class="fa-solid fa-desktop" aria-hidden="true"></i>
           <span>Udaljena podrška</span>
         </a>
-        <a href="tel:+38542123456" class="header-utility-item" title="Nazovite nas">
+        <a href="tel:+385917220389" class="header-utility-item" title="Nazovite nas">
           <i class="fa-solid fa-phone" aria-hidden="true"></i>
-          <span>+385 42 123 456</span>
+          <span>+385 91 722 0389</span>
+        </a>
+        <a href="tel:+385917292941" class="header-utility-item" title="Nazovite nas">
+          <i class="fa-solid fa-phone" aria-hidden="true"></i>
+          <span>+385 91 729 2941</span>
         </a>
         <a href="mailto:info@statorit.hr" class="header-utility-item" title="Pošaljite mail">
           <i class="fa-solid fa-envelope" aria-hidden="true"></i>
@@ -55,8 +64,9 @@
 
   <div class="mobile-menu" id="mobileMenu">
     <div class="mobile-menu-utility">
-      <a href="#kontakt"><i class="fa-solid fa-desktop"></i> Udaljena podrška</a>
-      <a href="tel:+38542123456"><i class="fa-solid fa-phone"></i> +385 42 123 456</a>
+      <a href="rustdesk.html" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-desktop"></i> Udaljena podrška</a>
+      <a class="mobile-phone-link" href="tel:+385917220389"><i class="fa-solid fa-phone" aria-hidden="true"></i><span class="mobile-phone-details"><span>+385 91 722 0389</span><span class="mobile-phone-name">Patrik</span></span></a>
+      <a class="mobile-phone-link" href="tel:+385917292941"><i class="fa-solid fa-phone" aria-hidden="true"></i><span class="mobile-phone-details"><span>+385 91 729 2941</span><span class="mobile-phone-name">David</span></span></a>
       <a href="mailto:info@statorit.hr"><i class="fa-solid fa-envelope"></i> info@statorit.hr</a>
     </div>
     <a href="#usluge">Usluge</a>
@@ -138,7 +148,6 @@
           </div>
           <h4>IT infrastruktura</h4>
           <p>Serveri, radne stanice, virtualizacija i backup sustavi.</p>
-          <a href="#kontakt" class="service-more">Više</a>
         </article>
         <article class="service-card">
           <div class="service-icon" aria-hidden="true">
@@ -146,7 +155,6 @@
           </div>
           <h4>Mrežna rješenja</h4>
           <p>LAN/WAN, Wi-Fi, firewall i zaštita podataka.</p>
-          <a href="#kontakt" class="service-more">Više</a>
         </article>
         <article class="service-card">
           <div class="service-icon" aria-hidden="true">
@@ -154,7 +162,6 @@
           </div>
           <h4>Web &amp; digital</h4>
           <p>Poslovne stranice, e-trgovina i digitalne integracije.</p>
-          <a href="#kontakt" class="service-more">Više</a>
         </article>
         <article class="service-card">
           <div class="service-icon" aria-hidden="true">
@@ -162,7 +169,6 @@
           </div>
           <h4>Podrška &amp; održavanje</h4>
           <p>Monitoring, održavanje i brza lokalna intervencija.</p>
-          <a href="#kontakt" class="service-more">Više</a>
         </article>
       </div>
     </section>
@@ -177,19 +183,18 @@
             </span><span class="showcase-title-rest">ISKATOR</span>
           </h2>
           <div class="sc-text-inner" id="scInner">
-            <p class="showcase-tagline" id="scTagline">Fiskalna blagajna za sve djelatnosti</p>
+            <p class="showcase-tagline" id="scTagline">Naplata s dlana, gdje god poslujete</p>
             <p class="showcase-desc" id="scDesc">
-              Naš POS program za fiskalizaciju 2.0 — moderan, brz i prilagođen
-              hrvatskim propisima. Upravljajte prodajom, računima i izvještajima
-              s jednog mjesta, bez komplikacija.
+              Prijenosni Android POS terminal povezan s Fiskator sustavom — naplaćujte karticom i gotovinom,
+              ispisujte fiskalne račune i pratite promet u stvarnom vremenu, bez fiksne blagajne.
             </p>
             <ul class="showcase-features" id="scFeatures">
-              <li><i class="fa-solid fa-check"></i> Fiskalizacija 2.0 u skladu s propisima</li>
-              <li><i class="fa-solid fa-check"></i> POS prodaja — gotovina, kartica, transakcijski</li>
-              <li><i class="fa-solid fa-check"></i> Artikli, popusti, dnevni izvještaji</li>
-              <li><i class="fa-solid fa-check"></i> Lokalna instalacija i podrška</li>
+              <li><i class="fa-solid fa-check"></i> Kartično i gotovinsko plaćanje na jednom uređaju</li>
+              <li><i class="fa-solid fa-check"></i> Ugrađeni fiskalni pisač</li>
+              <li><i class="fa-solid fa-check"></i> Idealno za teren — dostava, sajmovi, ugostiteljstvo</li>
+              <li><i class="fa-solid fa-check"></i> Sinkronizacija s Fiskator sustavom u stvarnom vremenu</li>
             </ul>
-            <a href="#kontakt" class="btn btn-primary showcase-cta" id="scCta">Zatražite demo</a>
+            <a href="#kontakt" class="btn btn-primary showcase-cta" id="scCta">Zatražite ponudu</a>
           </div>
         </div>
         <div class="showcase-visual">
@@ -197,15 +202,7 @@
             <div class="sc-track-wrap">
               <div class="sc-track">
 
-                <!-- Slide 1: Desktop aplikacija -->
-                <div class="sc-slide">
-                  <span class="sc-tag"><i class="fa-solid fa-display"></i> Desktop aplikacija</span>
-                  <div class="showcase-image-wrap">
-                    <img src="assets/fiskator.png" alt="Fiskator desktop" class="showcase-image" />
-                  </div>
-                </div>
-
-                <!-- Slide 2: POS terminal -->
+                <!-- Slide 1: POS terminal -->
                 <div class="sc-slide">
                   <span class="sc-tag"><i class="fa-solid fa-tablet-screen-button"></i> POS terminal</span>
                   <div class="sc-pos-wrap">
@@ -213,26 +210,19 @@
                   </div>
                 </div>
 
+                <!-- Slide 2: Računalna aplikacija -->
+                <div class="sc-slide">
+                  <span class="sc-tag"><i class="fa-solid fa-display"></i> Računalna aplikacija</span>
+                  <div class="showcase-image-wrap">
+                    <img src="assets/fiskator.png" alt="Fiskator desktop" class="showcase-image" />
+                  </div>
+                </div>
+
                 <!-- Slide 3: Mobilna aplikacija -->
                 <div class="sc-slide">
                   <span class="sc-tag"><i class="fa-solid fa-mobile-screen"></i> Mobilna aplikacija</span>
                   <div class="sc-phone-wrap">
-                    <div class="sc-phone">
-                      <div class="sc-phone-notch"></div>
-                      <div class="sc-phone-screen">
-                        <div class="sc-mock-app-bar"></div>
-                        <div class="sc-mock-app-hero"></div>
-                        <div class="sc-mock-app-cards">
-                          <div class="sc-mock-app-card"></div>
-                          <div class="sc-mock-app-card"></div>
-                        </div>
-                        <div class="sc-mock-text-rows">
-                          <div class="sc-mock-line w70"></div>
-                          <div class="sc-mock-line w50"></div>
-                        </div>
-                        <div class="sc-mock-app-btn"></div>
-                      </div>
-                    </div>
+                    <img src="assets/mob.png" alt="Fiskator mobilna aplikacija na telefonu" class="sc-mobile-app-photo" />
                   </div>
                 </div>
 
@@ -253,6 +243,38 @@
       </div>
     </section>
 
+    <section class="payment-strip" aria-label="Načini plaćanja i sigurnost">
+      <div class="payment-strip-inner">
+        <div class="payment-strip-top">
+          <p class="payment-strip-message">Sve kartice i svi novčanici. I onaj gost koji plaća satom.</p>
+          <ul class="payment-brands" aria-label="Podržani načini plaćanja">
+            <li class="payment-brand payment-brand--visa" aria-label="Visa">
+              <svg fill="#1A1F71" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-labelledby="visaLogoTitle">
+                <title id="visaLogoTitle">Visa</title>
+                <path d="M9.112 8.262L5.97 15.758H3.92L2.374 9.775c-.094-.368-.175-.503-.461-.658C1.447 8.864.677 8.627 0 8.479l.046-.217h3.3a.904.904 0 01.894.764l.817 4.338 2.018-5.102zm8.033 5.049c.008-1.979-2.736-2.088-2.717-2.972.006-.269.262-.555.822-.628a3.66 3.66 0 011.913.336l.34-1.59a5.207 5.207 0 00-1.814-.333c-1.917 0-3.266 1.02-3.278 2.479-.012 1.079.963 1.68 1.698 2.04.756.367 1.01.603 1.006.931-.005.504-.602.725-1.16.734-.975.015-1.54-.263-1.992-.473l-.351 1.642c.453.208 1.289.39 2.156.398 2.037 0 3.37-1.006 3.377-2.564m5.061 2.447H24l-1.565-7.496h-1.656a.883.883 0 00-.826.55l-2.909 6.946h2.036l.405-1.12h2.488zm-2.163-2.656l1.02-2.815.588 2.815zm-8.16-4.84l-1.603 7.496H8.34l1.605-7.496z"/>
+              </svg>
+            </li>
+            <li class="payment-brand payment-brand--mastercard" aria-label="Mastercard">
+              <span class="mastercard-symbol" aria-hidden="true"><i></i><i></i></span>
+              <span class="sr-only">Mastercard</span>
+            </li>
+            <li class="payment-brand payment-brand--maestro" aria-label="Maestro">
+              <span class="maestro-symbol" aria-hidden="true"><i></i><i></i></span>
+              <span class="sr-only">Maestro</span>
+            </li>
+            <li class="payment-brand payment-brand--apple">Apple Pay</li>
+            <li class="payment-brand payment-brand--google"><span aria-hidden="true">G</span> Pay</li>
+            <li class="payment-brand payment-brand--samsung">SAMSUNG Pay</li>
+          </ul>
+        </div>
+        <ul class="payment-benefits" aria-label="Prednosti plaćanja">
+          <li><i class="fa-solid fa-wifi" aria-hidden="true"></i> Beskontaktno</li>
+          <li><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> PCI DSS i MPoC</li>
+          <li><i class="fa-solid fa-bolt" aria-hidden="true"></i> Brza isplata</li>
+        </ul>
+      </div>
+    </section>
+
     <section class="portfolio" id="klijenti">
       <div class="portfolio-inner">
         <div class="portfolio-title-scene">
@@ -261,7 +283,6 @@
         </div>
 
         <div class="portfolio-clients">
-          <p class="clients-label">Partneri iz zajednice</p>
           <div class="clients-marquee">
             <div class="clients-track">
               <div class="client-logo"><img src="assets/ebsw.png" alt="EBSW" width="160" height="64" /></div>
@@ -271,6 +292,7 @@
               <div class="client-logo"><img src="assets/haludek.png" alt="Haludek" width="160" height="64" /></div>
               <div class="client-logo"><img src="assets/provar.png" alt="Provar" width="160" height="64" /></div>
               <div class="client-logo"><img src="assets/automotorefres.png" alt="Automoto Refres" width="160" height="64" /></div>
+              <div class="client-logo"><img src="assets/celik.PNG" alt="Čelik-Mont" width="160" height="64" /></div>
               <div class="client-logo" aria-hidden="true"><img src="assets/ebsw.png" alt="" width="160" height="64" /></div>
               <div class="client-logo" aria-hidden="true"><img src="assets/branch2.png" alt="" width="160" height="64" /></div>
               <div class="client-logo" aria-hidden="true"><img src="assets/pustinja.png" alt="" width="160" height="64" /></div>
@@ -278,6 +300,7 @@
               <div class="client-logo" aria-hidden="true"><img src="assets/haludek.png" alt="" width="160" height="64" /></div>
               <div class="client-logo" aria-hidden="true"><img src="assets/provar.png" alt="" width="160" height="64" /></div>
               <div class="client-logo" aria-hidden="true"><img src="assets/automotorefres.png" alt="" width="160" height="64" /></div>
+              <div class="client-logo" aria-hidden="true"><img src="assets/celik.PNG" alt="" width="160" height="64" /></div>
             </div>
           </div>
         </div>
@@ -300,7 +323,10 @@
           </div>
           <div class="contact-block">
             <span class="contact-label">Telefon</span>
-            <p><a href="tel:+38542123456">+385 42 123 456</a></p>
+            <p>
+              <a class="contact-phone-link" href="tel:+385917220389">+385 91 722 0389<span>Patrik</span></a>
+              <a class="contact-phone-link" href="tel:+385917292941">+385 91 729 2941<span>David</span></a>
+            </p>
           </div>
           <div class="contact-block">
             <span class="contact-label">E-mail</span>
@@ -312,25 +338,43 @@
           </div>
         </div>
 
-        <form class="footer-form" onsubmit="return false;">
-          <label>
-            <span>Ime i prezime</span>
-            <input type="text" placeholder="Vaše ime" />
-          </label>
-          <label>
-            <span>E-mail</span>
-            <input type="email" placeholder="vas@email.hr" />
-          </label>
-          <label>
-            <span>Poruka</span>
-            <textarea rows="4" placeholder="Opišite vaš IT izazov..."></textarea>
-          </label>
-          <button type="submit" class="btn btn-primary">Pošaljite upit</button>
-        </form>
+        <div class="footer-inquiry-column">
+          <div class="remote-support-shortcut">
+            <div>
+              <h3>Treba vam udaljena podrška?</h3>
+              <p>RustDesk podrška ima zaseban obrazac za ID uređaja i opis poteškoće.</p>
+            </div>
+            <a class="btn btn-primary" href="rustdesk.html" target="_blank" rel="noopener noreferrer">Udaljena podrška</a>
+          </div>
+          <form class="footer-form" id="generalInquiryForm" data-email-form action="https://formsubmit.co/ajax/info@statorit.hr" method="POST">
+            <h3 class="support-form-title">Pošaljite nam opći upit</h3>
+            <p class="support-form-intro">Opišite svoje pitanje ili IT izazov, a mi ćemo vam se javiti.</p>
+            <input type="hidden" name="_subject" value="Novi opći upit sa stranice Stator IT">
+            <input type="hidden" name="_template" value="table">
+            <div class="support-honeypot" aria-hidden="true">
+              <label for="inquiryWebsite">Ostavite ovo polje prazno</label>
+              <input id="inquiryWebsite" type="text" name="_honey" tabindex="-1" autocomplete="off">
+            </div>
+            <label>
+              <span>Ime i prezime</span>
+              <input type="text" name="name" placeholder="Vaše ime" autocomplete="name" required />
+            </label>
+            <label>
+              <span>E-mail za odgovor</span>
+              <input type="email" name="email" placeholder="vas@email.hr" autocomplete="email" required />
+            </label>
+            <label>
+              <span>Poruka</span>
+              <textarea name="message" rows="4" maxlength="2000" placeholder="Kako vam možemo pomoći?" required></textarea>
+            </label>
+            <p class="support-form-status" role="status" aria-live="polite"></p>
+            <button type="submit" class="btn btn-primary">Pošaljite upit</button>
+          </form>
+        </div>
       </div>
 
       <div class="footer-map">
-        <div id="footerMap"></div>
+        <img src="assets/na.png" alt="Našice, moj grad" loading="lazy" />
       </div>
 
       <div class="footer-bottom">
@@ -347,47 +391,9 @@
 
   </main>
 
-  <script type="importmap">
-    {
-      "imports": {
-        "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
-        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
-      }
-    }
-  </script>
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
-  <script>
-    window.addEventListener('DOMContentLoaded', function () {
-      var map = L.map('footerMap', {
-        center: [45.4908, 18.0989],
-        zoom: 14,
-        scrollWheelZoom: false,
-        zoomControl: true,
-        attributionControl: true,
-      });
-
-      L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-        attribution: '© <a href="https://www.openstreetmap.org/copyright">OSM</a> © <a href="https://carto.com/attributions">CARTO</a>',
-        subdomains: 'abcd',
-        maxZoom: 19,
-      }).addTo(map);
-
-      var goldIcon = L.divIcon({
-        className: '',
-        html: '<div class="map-pin"></div>',
-        iconSize: [18, 18],
-        iconAnchor: [9, 9],
-        popupAnchor: [0, -14],
-      });
-
-      L.marker([45.4908, 18.0989], { icon: goldIcon })
-        .addTo(map)
-        .bindPopup('<strong>Stator IT</strong><br>Našice, Hrvatska');
-    });
-  </script>
+  <script src="form-submit.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
-  <script type="module" src="hero-3d.js"></script>
   <script src="main.js"></script>
 </body>
 </html>

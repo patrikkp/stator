@@ -74,6 +74,8 @@ function initHero() {
     .from(".hero-foot", { autoAlpha: 0, y: 16, duration: 0.65, ease: "power2.out" }, "-=0.45")
     .from(".hero-scroll", { autoAlpha: 0, duration: 0.5 }, "-=0.3");
 
+  if (isMobile) return;
+
   gsap.to(".hero-ghost", {
     y: "-18%", ease: "none",
     scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: 0.8 },
@@ -89,6 +91,8 @@ function initHero() {
 }
 
 function initServices() {
+  if (isMobile) return;
+
   const trigger = (el, start) => ({
     trigger: el,
     start: start || "top 82%",
@@ -113,15 +117,17 @@ function initShowcase() {
     toggleActions: "play none none none",
   });
 
-  gsap.from(".showcase-label, .showcase-title, .sc-text-inner > *", {
-    autoAlpha: 0, y: 24, stagger: 0.08, duration: 0.75,
-    scrollTrigger: trigger(".showcase"),
-  });
+  if (!isMobile) {
+    gsap.from(".showcase-label, .showcase-title, .sc-text-inner > *", {
+      autoAlpha: 0, y: 24, stagger: 0.08, duration: 0.75,
+      scrollTrigger: trigger(".showcase"),
+    });
 
-  gsap.from(".sc-carousel", {
-    autoAlpha: 0, x: 36, duration: 0.9,
-    scrollTrigger: trigger(".showcase-visual"),
-  });
+    gsap.from(".sc-carousel", {
+      autoAlpha: 0, x: 36, duration: 0.9,
+      scrollTrigger: trigger(".showcase-visual"),
+    });
+  }
 
   initShowcaseCarousel();
 }
@@ -143,17 +149,6 @@ function initShowcaseCarousel() {
 
   const slideData = [
     {
-      tagline: "Fiskalna blagajna za sve djelatnosti",
-      desc: "Naš POS program za fiskalizaciju 2.0 — moderan, brz i prilagođen hrvatskim propisima. Upravljajte prodajom, računima i izvještajima s jednog mjesta, bez komplikacija.",
-      features: [
-        "Fiskalizacija 2.0 u skladu s propisima",
-        "POS prodaja — gotovina, kartica, transakcijski",
-        "Artikli, popusti, dnevni izvještaji",
-        "Lokalna instalacija i podrška",
-      ],
-      cta: "Zatražite demo",
-    },
-    {
       tagline: "Naplata s dlana, gdje god poslujete",
       desc: "Prijenosni Android POS terminal povezan s Fiskator sustavom — naplaćujte karticom i gotovinom, ispisujte fiskalne račune i pratite promet u stvarnom vremenu, bez fiksne blagajne.",
       features: [
@@ -163,6 +158,17 @@ function initShowcaseCarousel() {
         "Sinkronizacija s Fiskator sustavom u stvarnom vremenu",
       ],
       cta: "Zatražite ponudu",
+    },
+    {
+      tagline: "Fiskalna blagajna za sve djelatnosti",
+      desc: "Naš POS program za fiskalizaciju 2.0 — moderan, brz i prilagođen hrvatskim propisima. Upravljajte prodajom, računima i izvještajima s jednog mjesta, bez komplikacija.",
+      features: [
+        "Fiskalizacija 2.0 u skladu s propisima",
+        "POS prodaja — gotovina, kartica, transakcijski",
+        "Artikli, popusti, dnevni izvještaji",
+        "Lokalna instalacija i podrška",
+      ],
+      cta: "Zatražite demo",
     },
     {
       tagline: "Vaš brand u džepu korisnika",
@@ -199,6 +205,10 @@ function initShowcaseCarousel() {
     if (nextBtn) nextBtn.disabled = current === slides.length - 1;
   }
 
+  function updateTrackHeight() {
+    if (trackWrap) trackWrap.style.height = `${slides[current].offsetHeight}px`;
+  }
+
   function applyText(data) {
     if (scTagline)  scTagline.textContent = data.tagline;
     if (scDesc)     scDesc.textContent = data.desc;
@@ -217,6 +227,7 @@ function initShowcaseCarousel() {
     const slideWidth = trackWrap.clientWidth;
     track.style.transform = `translateX(-${next * slideWidth}px)`;
     current = next;
+    updateTrackHeight();
     updateDots();
     updateBtns();
 
@@ -247,8 +258,14 @@ function initShowcaseCarousel() {
   // Init without text animation
   const slideWidth = trackWrap.clientWidth;
   track.style.transform = `translateX(0)`;
+  updateTrackHeight();
   updateDots();
   updateBtns();
+  window.addEventListener("resize", updateTrackHeight);
+  if ("ResizeObserver" in window) {
+    const slideObserver = new ResizeObserver(updateTrackHeight);
+    slides.forEach((slide) => slideObserver.observe(slide));
+  }
 }
 
 function initPortfolio() {
@@ -256,6 +273,8 @@ function initPortfolio() {
 }
 
 function initFooter() {
+  if (isMobile) return;
+
   const trigger = (el, start) => ({
     trigger: el,
     start: start || "top 80%",
@@ -284,6 +303,8 @@ function initFooter() {
 }
 
 function initNav() {
+  if (isMobile) return;
+
   let lastScroll = 0;
   const header = document.getElementById("siteHeader");
   ScrollTrigger.create({
@@ -333,6 +354,7 @@ function initCardsCarousel() {
   let dragStartX = 0;
   let dragStartOffset = 0;
   let resizeTimer;
+  let lastViewportWidth = document.documentElement.clientWidth;
 
   function isMobile() { return window.innerWidth <= 600; }
 
@@ -481,6 +503,9 @@ function initCardsCarousel() {
   });
 
   window.addEventListener("resize", () => {
+    const viewportWidth = document.documentElement.clientWidth;
+    if (viewportWidth === lastViewportWidth) return;
+    lastViewportWidth = viewportWidth;
     clearTimeout(resizeTimer);
     resizeTimer = setTimeout(() => {
       measure();
@@ -488,15 +513,17 @@ function initCardsCarousel() {
     }, 150);
   });
 
-  gsap.from(cards, {
-    autoAlpha: 0, y: 28, stagger: 0.08,
-    scrollTrigger: { trigger: ".portfolio-cards-section", start: "top 85%", toggleActions: "play none none none" },
-  });
+  if (!isMobile) {
+    gsap.from(cards, {
+      autoAlpha: 0, y: 28, stagger: 0.08,
+      scrollTrigger: { trigger: ".portfolio-cards-section", start: "top 85%", toggleActions: "play none none none" },
+    });
 
-  gsap.from(".portfolio-nav", {
-    autoAlpha: 0, y: 16, duration: 0.6,
-    scrollTrigger: { trigger: ".portfolio-cards-section", start: "top 80%", toggleActions: "play none none none" },
-  });
+    gsap.from(".portfolio-nav", {
+      autoAlpha: 0, y: 16, duration: 0.6,
+      scrollTrigger: { trigger: ".portfolio-cards-section", start: "top 80%", toggleActions: "play none none none" },
+    });
+  }
 
   measure();
   goToPage(0, false);
@@ -512,35 +539,39 @@ function initMarquee() {
   const track = document.querySelector(".clients-track");
   if (!marquee || !track) return;
 
-  let x = 0;
-  let paused = false;
-  let halfW = 0;
-  const speed = 0.6;
-
   function measure() {
-    const w = track.scrollWidth / 2;
-    if (w > 10) halfW = w;
+    const halfWidth = track.scrollWidth / 2;
+    if (halfWidth <= 10) return;
+    const duration = halfWidth / 36;
+    track.style.setProperty("--marquee-duration", `${duration}s`);
+    track.classList.add("is-animated");
   }
 
-  marquee.addEventListener("mouseenter", () => { paused = true; });
-  marquee.addEventListener("mouseleave", () => { paused = false; });
-  window.addEventListener("resize", measure);
-
-  (function tick() {
-    if (halfW === 0) { measure(); }
-    if (!paused && halfW > 0) {
-      x = (x + speed) % halfW;
-      track.style.transform = `translateX(-${x}px)`;
-    }
-    requestAnimationFrame(tick);
-  })();
+  marquee.addEventListener("mouseenter", () => track.classList.add("is-paused"));
+  marquee.addEventListener("mouseleave", () => track.classList.remove("is-paused"));
+  marquee.addEventListener("focusin", () => track.classList.add("is-paused"));
+  marquee.addEventListener("focusout", () => track.classList.remove("is-paused"));
+  if ("ResizeObserver" in window) {
+    new ResizeObserver(measure).observe(marquee);
+  } else {
+    let lastViewportWidth = document.documentElement.clientWidth;
+    window.addEventListener("resize", () => {
+      const viewportWidth = document.documentElement.clientWidth;
+      if (viewportWidth === lastViewportWidth) return;
+      lastViewportWidth = viewportWidth;
+      measure();
+    });
+  }
+  measure();
 }
 
 initMarquee();
 initPreloader();
 
-let resizeTimer;
-window.addEventListener("resize", () => {
-  clearTimeout(resizeTimer);
-  resizeTimer = setTimeout(() => ScrollTrigger.refresh(), 300);
-});
+if (!isMobile) {
+  let resizeTimer;
+  window.addEventListener("resize", () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => ScrollTrigger.refresh(), 300);
+  });
+}

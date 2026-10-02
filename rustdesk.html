@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Zatražite udaljenu IT podršku od Stator IT-a putem RustDeska." />
+  <title>Udaljena podrška — Stator IT</title>
+  <meta name="theme-color" content="#070b12" />
+  <link rel="icon" href="assets/favicon/favicon.ico" sizes="any" />
+  <link rel="icon" href="assets/favicon/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="assets/favicon/favicon-96x96.png" type="image/png" sizes="96x96" />
+  <link rel="apple-touch-icon" href="assets/favicon/apple-touch-icon.png" />
+  <link rel="manifest" href="assets/favicon/site.webmanifest" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="support-page">
+  <main class="support-page-main">
+    <a class="support-page-logo" href="index.html" aria-label="Natrag na Stator IT">
+      <img src="assets/logo-light.png" alt="Stator IT" />
+    </a>
+    <section class="support-page-card" aria-labelledby="supportPageTitle">
+      <a class="support-back-link" href="index.html"><span aria-hidden="true">←</span> Povratak na stranicu</a>
+      <p class="support-eyebrow">STATOR IT · TEHNIČKA PODRŠKA</p>
+      <h1 class="support-form-title" id="supportPageTitle">Udaljena podrška</h1>
+      <p class="support-form-intro">
+        RustDesk je program koji nam omogućuje da vam, uz vaše odobrenje, pomognemo izravno na računalu ili mobitelu — kao da smo pokraj vas.
+      </p>
+      <p class="support-form-intro">
+        Za udaljenu pomoć preuzmite, instalirajte i otvorite RustDesk klikom na gumb ispod. Zatim nam pošaljite svoj ID i opišite problem; javit ćemo vam se kako bismo dogovorili povezivanje.
+      </p>
+      <a class="btn btn-primary support-download-button" href="https://rustdesk.com/download/" target="_blank" rel="noopener noreferrer">
+        Preuzmi RustDesk <span aria-hidden="true">↓</span>
+      </a>
+      <form class="footer-form" id="rustdeskSupportForm" data-email-form action="https://formsubmit.co/ajax/info@statorit.hr" method="POST">
+        <input type="hidden" name="_subject" value="Zahtjev za RustDesk udaljenu podršku">
+        <input type="hidden" name="_template" value="table">
+        <div class="support-honeypot" aria-hidden="true">
+          <label for="supportWebsite">Ostavite ovo polje prazno</label>
+          <input id="supportWebsite" type="text" name="_honey" tabindex="-1" autocomplete="off">
+        </div>
+        <label>
+          <span>Ime i prezime</span>
+          <input type="text" name="name" placeholder="Vaše ime" autocomplete="name" required />
+        </label>
+        <label>
+          <span>E-mail za odgovor</span>
+          <input type="email" name="email" placeholder="vas@email.hr" autocomplete="email" required />
+        </label>
+        <label>
+          <span>RustDesk ID</span>
+          <input type="text" name="rustdesk_id" placeholder="ID prikazan u RustDesku" autocomplete="off" required />
+        </label>
+        <label>
+          <span>Opis problema za udaljenu podršku</span>
+          <textarea name="problem" rows="4" maxlength="2000" placeholder="Što želite da provjerimo putem udaljene podrške?" required></textarea>
+        </label>
+        <p class="support-security-note">
+          Ne šaljite RustDesk lozinku ni jednokratni kod drugim osobama osim nas. Povezivanje odobrite na svom računalu, mobitelu ili POS mobilnoj blagajni tek kada razgovarate s nama.
+        </p>
+        <p class="support-form-status" role="status" aria-live="polite"></p>
+        <button type="submit" class="btn btn-primary">Pošaljite zahtjev za podršku</button>
+      </form>
+    </section>
+    <p class="support-page-contact">Trebate opći upit? <a href="index.html#kontakt">Kontaktirajte nas</a></p>
+  </main>
+  <script src="form-submit.js"></script>
+</body>
+</html>
