@@ -12,6 +12,34 @@ function initPreloader() {
   }, 650);
 }
 
+function initScrollReveals() {
+  if (
+    !("IntersectionObserver" in window) ||
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches
+  ) return;
+
+  const elements = document.querySelectorAll(
+    ".services-header, .service-card, .showcase-text, .showcase-visual, " +
+    ".portfolio-title-scene, .portfolio-card, .portfolio-nav, .portfolio-clients, " +
+    ".footer-hero, .contact-block, .remote-support-shortcut, .footer-form"
+  );
+  const observer = new IntersectionObserver((entries, currentObserver) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add("scroll-reveal-visible");
+      currentObserver.unobserve(entry.target);
+    });
+  }, { threshold: 0.08, rootMargin: "0px 0px -6% 0px" });
+
+  elements.forEach((element, index) => {
+    if (element.getBoundingClientRect().top >= window.innerHeight) {
+      element.style.setProperty("--scroll-reveal-delay", `${Math.min(index % 4, 3) * 45}ms`);
+      element.classList.add("scroll-reveal-pending");
+      observer.observe(element);
+    }
+  });
+}
+
 function initPageInteractions() {
   if (interactionsInitialized) return;
   interactionsInitialized = true;
@@ -398,4 +426,5 @@ function initMarquee() {
 
 initPreloader();
 initMarquee();
+initScrollReveals();
 initPageInteractions();

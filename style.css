@@ -913,6 +913,14 @@ button { font: inherit; border: none; background: none; cursor: pointer; }
 .support-form-status[data-state="error"] { color: #e59b8f; }
 .footer-form button:disabled { cursor: wait; opacity: 0.65; }
 .support-honeypot { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+.scroll-reveal-pending {
+  transform: translate3d(0, 12px, 0);
+  transition: transform 520ms cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--scroll-reveal-delay, 0ms);
+}
+.scroll-reveal-pending.scroll-reveal-visible {
+  transform: translate3d(0, 0, 0);
+}
 .footer-form label { display: flex; flex-direction: column; gap: 0.5rem; }
 .footer-form label span { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-muted); }
 .footer-form input, .footer-form textarea {
@@ -1133,4 +1141,5 @@ button { font: inherit; border: none; background: none; cursor: pointer; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
   .clients-track.is-animated { animation: none; transform: none; }
+  .scroll-reveal-pending { transform: none; transition: none; }
 }
