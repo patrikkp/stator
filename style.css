@@ -32,6 +32,9 @@ body {
   background: var(--bg-deep);
   color: var(--text);
   overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-y;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
 }
@@ -683,7 +686,7 @@ button { font: inherit; border: none; background: none; cursor: pointer; }
   background: var(--bg-elevated); padding: 0.75rem;
   box-shadow: 0 24px 64px rgba(0, 0, 0, 0.45);
 }
-.sc-slide:nth-child(2) { padding-top: 6.5rem; }
+.sc-slide:nth-child(2) { padding-top: 0; }
 .showcase-image {
   display: block; width: 100%; height: auto;
   object-fit: contain; object-position: top center;
@@ -857,12 +860,24 @@ button { font: inherit; border: none; background: none; cursor: pointer; }
   max-width: 1100px; margin: 0 auto 5rem; padding-bottom: 4rem;
   border-bottom: 1px solid var(--border-subtle);
 }
-.footer-contact { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; }
-.contact-label { display: block; font-size: 0.65rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent-bright); margin-bottom: 0.75rem; }
-.contact-block p { font-size: 0.95rem; color: var(--text-muted); line-height: 1.7; }
+.footer-contact { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem 2rem; }
+.contact-block {
+  padding: 1.25rem 1.1rem 1.1rem;
+  border: 1px solid var(--border-subtle);
+  border-radius: 1rem;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  min-height: 180px;
+}
+.contact-label { display: block; font-size: 0.65rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent-bright); margin-bottom: 0.9rem; }
+.contact-block p { margin: 0; font-size: 0.95rem; color: var(--text-muted); line-height: 1.7; }
 .contact-phone-link { display: flex; width: fit-content; flex-direction: column; line-height: 1.4; }
 .contact-phone-link + .contact-phone-link { margin-top: 0.55rem; }
-.contact-phone-link span { font-size: 0.78rem; color: var(--text-muted); }
+.contact-phone-link span {
+  display: inline-block;
+  margin-top: 0.15rem;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
 .contact-block a { transition: color 0.3s; }
 .contact-block a:hover { color: var(--accent-bright); }
 .footer-inquiry-column { display: flex; flex-direction: column; gap: 2rem; }
@@ -1008,9 +1023,15 @@ button { font: inherit; border: none; background: none; cursor: pointer; }
   .portfolio-card { flex: 0 0 clamp(200px, 38vw, 300px); }
 }
 @media (max-width: 768px) {
+  html, body { overflow-x: hidden; overflow-y: auto; }
+  body { overscroll-behavior-y: auto; }
   .hero {
     height: 100svh;
     min-height: min(640px, 100svh);
+  }
+  .hero-ghost, .hero-inner, .hero-scroll, .showcase-visual, .portfolio-title, .portfolio-card, .clients-track {
+    transform: none !important;
+    will-change: auto;
   }
   .header-utility { display: none; }
   .header-float { align-items: stretch; }
@@ -1063,6 +1084,44 @@ button { font: inherit; border: none; background: none; cursor: pointer; }
   .showcase-inner { overflow: hidden; width: 100%; }
   .showcase-text { text-align: left; align-items: stretch; max-width: 100%; width: 100%; }
   .sc-text-inner { width: 100%; min-width: 0; overflow: hidden; }
+  .sc-carousel { min-width: 0; }
+  .sc-controls {
+    width: 100%;
+    min-height: 48px;
+    gap: 0.7rem;
+    margin-top: 1.25rem;
+    padding: 0 0.25rem 0.25rem;
+  }
+  .sc-btn {
+    flex: 0 0 44px;
+    width: 44px;
+    height: 44px;
+  }
+  .sc-dots { gap: 0.25rem; }
+  .sc-dot {
+    position: relative;
+    flex: 0 0 24px;
+    width: 24px;
+    height: 32px;
+    background: transparent;
+  }
+  .sc-dot::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: rgba(232,228,220,0.22);
+    transform: translate(-50%, -50%);
+    transition: background 0.25s, width 0.25s;
+  }
+  .sc-dot.active::before {
+    width: 18px;
+    background: var(--accent-bright);
+    border-radius: 3px;
+  }
   .showcase-title { font-size: clamp(2.2rem, 12vw, 3rem); }
   .showcase-tagline { font-size: clamp(0.95rem, 3.8vw, 1.1rem); white-space: normal; overflow-wrap: break-word; }
   .showcase-desc { font-size: 0.88rem; overflow-wrap: break-word; word-break: break-word; }

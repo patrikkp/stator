@@ -48,6 +48,12 @@ function initAnimations() {
   animationsStarted = true;
 
   const run = () => {
+    if (isMobile) {
+      initMobileMenu();
+      initShowcaseCarousel();
+      return;
+    }
+
     initHero();
     initServices();
     initShowcase();
@@ -68,10 +74,10 @@ function initAnimations() {
 function initHero() {
   const tl = gsap.timeline({ delay: 0.1 });
 
-  tl.from(".hero-topbar", { autoAlpha: 0, y: -14, duration: 0.65, ease: "power2.out" })
+  tl.from(".hero-topbar", { y: -14, duration: 0.65, ease: "power2.out" })
     .to(".hero-rule", { scaleX: 1, duration: 1, ease: "power2.inOut", stagger: 0.08 }, "-=0.45")
     .from(".hero-title-word", { y: "106%", duration: 0.85, ease: "power3.out", stagger: 0.06 }, "-=0.7")
-    .from(".hero-foot", { autoAlpha: 0, y: 16, duration: 0.65, ease: "power2.out" }, "-=0.45")
+    .from(".hero-foot", { y: 16, duration: 0.65, ease: "power2.out" }, "-=0.45")
     .from(".hero-scroll", { autoAlpha: 0, duration: 0.5 }, "-=0.3");
 
   if (isMobile) return;
@@ -100,12 +106,12 @@ function initServices() {
   });
 
   gsap.from(".services-header", {
-    autoAlpha: 0, y: 24,
+    y: 24,
     scrollTrigger: trigger(".services-header"),
   });
 
   gsap.from(".service-card", {
-    autoAlpha: 0, y: 30, stagger: 0.1,
+    y: 30, stagger: 0.1,
     scrollTrigger: trigger(".services-grid", "top 78%"),
   });
 }
@@ -119,12 +125,12 @@ function initShowcase() {
 
   if (!isMobile) {
     gsap.from(".showcase-label, .showcase-title, .sc-text-inner > *", {
-      autoAlpha: 0, y: 24, stagger: 0.08, duration: 0.75,
+      y: 24, stagger: 0.08, duration: 0.75,
       scrollTrigger: trigger(".showcase"),
     });
 
     gsap.from(".sc-carousel", {
-      autoAlpha: 0, x: 36, duration: 0.9,
+      x: 36, duration: 0.9,
       scrollTrigger: trigger(".showcase-visual"),
     });
   }
@@ -282,22 +288,22 @@ function initFooter() {
   });
 
   gsap.from(".footer-title", {
-    autoAlpha: 0, y: 36, duration: 0.9,
+    y: 36, duration: 0.9,
     scrollTrigger: trigger(".footer-hero", "top 78%"),
   });
 
   gsap.from(".footer-sub", {
-    autoAlpha: 0, y: 20,
+    y: 20,
     scrollTrigger: trigger(".footer-hero", "top 72%"),
   });
 
   gsap.from(".footer-contact .contact-block", {
-    autoAlpha: 0, y: 24, stagger: 0.09,
+    y: 24, stagger: 0.09,
     scrollTrigger: trigger(".footer-grid"),
   });
 
   gsap.from(".footer-form label, .footer-form .btn", {
-    autoAlpha: 0, y: 20, stagger: 0.07,
+    y: 20, stagger: 0.07,
     scrollTrigger: trigger(".footer-form"),
   });
 }
@@ -322,17 +328,22 @@ function initMobileMenu() {
   const toggle = document.getElementById("navToggle");
   const menu = document.getElementById("mobileMenu");
 
+  const setScrollLock = (locked) => {
+    document.body.style.overflow = locked ? "hidden" : "";
+    document.documentElement.style.overflow = locked ? "hidden" : "";
+  };
+
   toggle.addEventListener("click", () => {
     const isOpen = menu.classList.toggle("open");
     toggle.setAttribute("aria-expanded", isOpen);
-    document.body.style.overflow = isOpen ? "hidden" : "";
+    setScrollLock(isOpen);
   });
 
   menu.querySelectorAll("a").forEach((link) => {
     link.addEventListener("click", () => {
       menu.classList.remove("open");
       toggle.setAttribute("aria-expanded", false);
-      document.body.style.overflow = "";
+      setScrollLock(false);
     });
   });
 }
@@ -515,12 +526,12 @@ function initCardsCarousel() {
 
   if (!isMobile) {
     gsap.from(cards, {
-      autoAlpha: 0, y: 28, stagger: 0.08,
+      y: 28, stagger: 0.08,
       scrollTrigger: { trigger: ".portfolio-cards-section", start: "top 85%", toggleActions: "play none none none" },
     });
 
     gsap.from(".portfolio-nav", {
-      autoAlpha: 0, y: 16, duration: 0.6,
+      y: 16, duration: 0.6,
       scrollTrigger: { trigger: ".portfolio-cards-section", start: "top 80%", toggleActions: "play none none none" },
     });
   }
