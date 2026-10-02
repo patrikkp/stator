@@ -48,7 +48,9 @@ button { font: inherit; border: none; background: none; cursor: pointer; }
   position: fixed; inset: 0; z-index: 9999;
   background: var(--bg-deep);
   display: flex; align-items: center; justify-content: center;
+  transition: opacity 0.35s ease, visibility 0.35s ease;
 }
+.preloader.is-hidden { opacity: 0; visibility: hidden; pointer-events: none; }
 .preloader-inner { display: flex; flex-direction: column; align-items: center; gap: 2rem; }
 .preloader-logo { width: clamp(280px, 60vw, 560px); height: auto; }
 .preloader-bar { width: 180px; height: 2px; background: var(--border-subtle); overflow: hidden; }
@@ -261,12 +263,11 @@ button { font: inherit; border: none; background: none; cursor: pointer; }
   50%       { opacity: 0.5; box-shadow: 0 0 4px rgba(74, 222, 128, 0.2); }
 }
 
-/* thin ruled lines — animate scaleX on load */
+/* thin ruled lines */
 .hero-rule {
   width: 100%; height: 1px;
   background: rgba(255, 255, 255, 0.07);
   transform-origin: left;
-  transform: scaleX(0);
 }
 
 /* title block */
@@ -294,7 +295,7 @@ button { font: inherit; border: none; background: none; cursor: pointer; }
   padding-bottom: 0.14em; margin-bottom: -0.14em;
 }
 .hero-title-word {
-  display: block; will-change: transform;
+  display: block;
 }
 .hero-title-row--italic .hero-title-word {
   font-style: italic; font-weight: 400; color: var(--accent-bright);

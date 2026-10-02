@@ -1,141 +1,23 @@
-gsap.registerPlugin(ScrollTrigger);
-
-gsap.defaults({ ease: "power2.out", duration: 0.7 });
-
-const isMobile = window.matchMedia("(max-width: 768px)").matches;
-let animationsStarted = false;
-
-function splitIntoChars(selector) {
-  document.querySelectorAll(selector).forEach((el) => {
-    const text = el.textContent;
-    el.innerHTML = "";
-    [...text].forEach((char) => {
-      const span = document.createElement("span");
-      span.className = "hero-char";
-      span.textContent = char === " " ? " " : char;
-      el.appendChild(span);
-    });
-  });
-}
+let interactionsInitialized = false;
 
 function initPreloader() {
   const preloader = document.getElementById("preloader");
-  const barFill = document.querySelector(".preloader-bar-fill");
-
-  gsap.timeline({
-    onComplete: () => {
-      gsap.to(preloader, {
-        autoAlpha: 0,
-        duration: 0.5,
-        onComplete: () => {
-          preloader.style.display = "none";
-          initAnimations();
-        },
-      });
-    },
-  }).to(barFill, { width: "100%", duration: 1.2, ease: "power2.inOut" });
+  if (!preloader) return;
 
   setTimeout(() => {
-    if (!animationsStarted) {
+    preloader.classList.add("is-hidden");
+    setTimeout(() => {
       preloader.style.display = "none";
-      initAnimations();
-    }
-  }, 2500);
+    }, 350);
+  }, 650);
 }
 
-function initAnimations() {
-  if (animationsStarted) return;
-  animationsStarted = true;
-
-  const run = () => {
-    if (isMobile) {
-      initMobileMenu();
-      initShowcaseCarousel();
-      return;
-    }
-
-    initHero();
-    initServices();
-    initShowcase();
-    initPortfolio();
-    initFooter();
-    initNav();
-    initMobileMenu();
-    ScrollTrigger.refresh();
-  };
-
-  if (document.fonts && document.fonts.ready) {
-    document.fonts.ready.then(run).catch(run);
-  } else {
-    run();
-  }
-}
-
-function initHero() {
-  const tl = gsap.timeline({ delay: 0.1 });
-
-  tl.from(".hero-topbar", { y: -14, duration: 0.65, ease: "power2.out" })
-    .to(".hero-rule", { scaleX: 1, duration: 1, ease: "power2.inOut", stagger: 0.08 }, "-=0.45")
-    .from(".hero-title-word", { y: "106%", duration: 0.85, ease: "power3.out", stagger: 0.06 }, "-=0.7")
-    .from(".hero-foot", { y: 16, duration: 0.65, ease: "power2.out" }, "-=0.45")
-    .from(".hero-scroll", { autoAlpha: 0, duration: 0.5 }, "-=0.3");
-
-  if (isMobile) return;
-
-  gsap.to(".hero-ghost", {
-    y: "-18%", ease: "none",
-    scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: 0.8 },
-  });
-  gsap.to(".hero-inner", {
-    y: -35, ease: "none",
-    scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: 0.6 },
-  });
-  gsap.to(".hero-scroll", {
-    autoAlpha: 0,
-    scrollTrigger: { trigger: ".hero", start: "10% top", end: "28% top", scrub: true },
-  });
-}
-
-function initServices() {
-  if (isMobile) return;
-
-  const trigger = (el, start) => ({
-    trigger: el,
-    start: start || "top 82%",
-    toggleActions: "play none none none",
-  });
-
-  gsap.from(".services-header", {
-    y: 24,
-    scrollTrigger: trigger(".services-header"),
-  });
-
-  gsap.from(".service-card", {
-    y: 30, stagger: 0.1,
-    scrollTrigger: trigger(".services-grid", "top 78%"),
-  });
-}
-
-function initShowcase() {
-  const trigger = (el) => ({
-    trigger: el,
-    start: "top 80%",
-    toggleActions: "play none none none",
-  });
-
-  if (!isMobile) {
-    gsap.from(".showcase-label, .showcase-title, .sc-text-inner > *", {
-      y: 24, stagger: 0.08, duration: 0.75,
-      scrollTrigger: trigger(".showcase"),
-    });
-
-    gsap.from(".sc-carousel", {
-      x: 36, duration: 0.9,
-      scrollTrigger: trigger(".showcase-visual"),
-    });
-  }
-
+function initPageInteractions() {
+  if (interactionsInitialized) return;
+  interactionsInitialized = true;
+  initMobileMenu();
   initShowcaseCarousel();
+  initCardsCarousel();
 }
 
 function initShowcaseCarousel() {
@@ -272,56 +154,6 @@ function initShowcaseCarousel() {
     const slideObserver = new ResizeObserver(updateTrackHeight);
     slides.forEach((slide) => slideObserver.observe(slide));
   }
-}
-
-function initPortfolio() {
-  initCardsCarousel();
-}
-
-function initFooter() {
-  if (isMobile) return;
-
-  const trigger = (el, start) => ({
-    trigger: el,
-    start: start || "top 80%",
-    toggleActions: "play none none none",
-  });
-
-  gsap.from(".footer-title", {
-    y: 36, duration: 0.9,
-    scrollTrigger: trigger(".footer-hero", "top 78%"),
-  });
-
-  gsap.from(".footer-sub", {
-    y: 20,
-    scrollTrigger: trigger(".footer-hero", "top 72%"),
-  });
-
-  gsap.from(".footer-contact .contact-block", {
-    y: 24, stagger: 0.09,
-    scrollTrigger: trigger(".footer-grid"),
-  });
-
-  gsap.from(".footer-form label, .footer-form .btn", {
-    y: 20, stagger: 0.07,
-    scrollTrigger: trigger(".footer-form"),
-  });
-}
-
-function initNav() {
-  if (isMobile) return;
-
-  let lastScroll = 0;
-  const header = document.getElementById("siteHeader");
-  ScrollTrigger.create({
-    start: "top -20",
-    onUpdate: (self) => {
-      const current = self.scroll();
-      header.classList.toggle("is-scrolled", current > 48);
-      header.style.transform = current > lastScroll && current > 200 ? "translateY(-120%)" : "translateY(0)";
-      lastScroll = current;
-    },
-  });
 }
 
 function initMobileMenu() {
@@ -524,18 +356,6 @@ function initCardsCarousel() {
     }, 150);
   });
 
-  if (!isMobile) {
-    gsap.from(cards, {
-      y: 28, stagger: 0.08,
-      scrollTrigger: { trigger: ".portfolio-cards-section", start: "top 85%", toggleActions: "play none none none" },
-    });
-
-    gsap.from(".portfolio-nav", {
-      y: 16, duration: 0.6,
-      scrollTrigger: { trigger: ".portfolio-cards-section", start: "top 80%", toggleActions: "play none none none" },
-    });
-  }
-
   measure();
   goToPage(0, false);
 
@@ -576,13 +396,6 @@ function initMarquee() {
   measure();
 }
 
-initMarquee();
 initPreloader();
-
-if (!isMobile) {
-  let resizeTimer;
-  window.addEventListener("resize", () => {
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(() => ScrollTrigger.refresh(), 300);
-  });
-}
+initMarquee();
+initPageInteractions();
