@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(Get-ChildItem -Recurse -Path \"C:\\\\Users\\\\Patrik\\\\Downloads\\\\ideje web za statora\\\\popravljena 2\\\\2\" -Name)",
+      "Bash(find \"/c/Users/Patrik/.claude\" -name \"SKILL.md\" 2>/dev/null | head -20)"
+    ]
+  }
+}

@@ -22,8 +22,8 @@
   <link rel="manifest" href="assets/favicon/site.webmanifest" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=20261002-2047" />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css?v=20261003-1318" />
 </head>
 <body class="support-page">
   <main class="support-page-main">
@@ -43,7 +43,7 @@
       <a class="btn btn-primary support-download-button" href="https://rustdesk.com/download/" target="_blank" rel="noopener noreferrer">
         Preuzmi RustDesk <span aria-hidden="true">↓</span>
       </a>
-      <form class="footer-form" id="rustdeskSupportForm" data-email-form action="https://formsubmit.co/ajax/info@statorit.hr" method="POST">
+      <form class="footer-form support-request-form" id="rustdeskSupportForm" data-email-form action="https://formsubmit.co/ajax/info@statorit.hr" method="POST">
         <input type="hidden" name="_subject" value="Zahtjev za RustDesk udaljenu podršku">
         <input type="hidden" name="_template" value="table">
         <div class="support-honeypot" aria-hidden="true">
@@ -56,11 +56,12 @@
         </label>
         <label>
           <span>E-mail za odgovor</span>
-          <input type="email" name="email" placeholder="vas@email.hr" autocomplete="email" required />
+          <input type="email" name="email" autocomplete="email" required />
         </label>
         <label>
           <span>RustDesk ID</span>
           <input type="text" name="rustdesk_id" placeholder="ID prikazan u RustDesku" autocomplete="off" required />
+          <small class="support-field-hint">ID se prikazuje u glavnom prozoru RustDeska.</small>
         </label>
         <label>
           <span>Opis problema za udaljenu podršku</span>

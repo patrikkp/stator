@@ -27,9 +27,9 @@
   <link rel="manifest" href="assets/favicon/site.webmanifest" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
-  <link rel="stylesheet" href="style.css?v=20261002-2047" />
+  <link rel="stylesheet" href="style.css?v=20261003-1318" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -113,11 +113,12 @@
         </a>
       </div>
       <header class="nav-pill" id="nav">
-        <a href="#hero" class="nav-logo">
+        <a href="index.html" class="nav-logo">
           <img src="assets/logo2.png" alt="Stator IT" />
         </a>
         <nav class="nav-links">
           <a href="#usluge">Usluge</a>
+          <a href="#faq">FAQ</a>
           <a href="#kontakt">Kontakt</a>
         </nav>
         <a href="#kontakt" class="nav-cta">Zatražite ponudu</a>
@@ -136,6 +137,7 @@
       <a href="mailto:info@statorit.hr"><i class="fa-solid fa-envelope"></i> info@statorit.hr</a>
     </div>
     <a href="#usluge">Usluge</a>
+    <a href="#faq">FAQ</a>
     <a href="#kontakt">Kontakt</a>
   </div>
 
@@ -148,11 +150,6 @@
 
       <div class="hero-inner">
         <div class="hero-topbar">
-          <div class="hero-topbar-left">
-            <span class="hero-num">01</span>
-            <span class="hero-sep">—</span>
-            <span class="hero-topbar-text">Stator IT · Našice</span>
-          </div>
           <div class="hero-topbar-right">
             <span class="hero-dot"></span>
             <span class="hero-topbar-text">Dostupni za projekte</span>
@@ -167,7 +164,7 @@
               <span class="hero-title-mask"><span class="hero-title-word">IT</span></span>
               <span class="hero-title-mask"><span class="hero-title-word">rješenja</span></span>
             </span>
-            <span class="hero-title-row hero-title-row--italic">
+            <span class="hero-title-row hero-title-row--accent">
               <span class="hero-title-mask"><span class="hero-title-word">i digitalne</span></span>
             </span>
             <span class="hero-title-row">
@@ -181,7 +178,6 @@
         <img src="assets/doljemaskota.png" alt="Stator IT maskota" class="hero-illustration hero-illustration--mobile" width="600" height="700" loading="eager" />
 
         <div class="hero-foot">
-          <p class="hero-foot-desc">Unaprijedite svoje poslovanje uz<br>StatorIT tehnologije i stručnu podršku</p>
           <div class="hero-foot-right">
             <a href="#kontakt" class="hero-cta">
               <span>Zatražite ponudu</span>
@@ -198,50 +194,52 @@
       </div>
     </section>
 
-    <section class="services" id="usluge">
-      <div class="services-header">
-        <span class="section-label">Što radimo</span>
-        <p class="services-intro split-words">
-          Cjelovita IT podrška za poslovanje — od temelja do digitalnog prisustva
-        </p>
-      </div>
+    <section class="services" id="usluge" aria-labelledby="services-title">
+      <div class="services-layout">
+        <header class="services-header">
+          <h2 class="services-title" id="services-title">IT podrška <em>za cijelo poslovanje.</em></h2>
+          <p class="services-intro">
+            Od svakodnevne pomoći do rješenja koja drže vaše poslovanje povezanim i sigurnim.
+          </p>
+        </header>
 
-      <div class="services-grid">
-        <article class="service-card">
-          <div class="service-icon" aria-hidden="true">
-            <i class="fa-solid fa-server"></i>
-          </div>
-          <h4>IT infrastruktura</h4>
-          <p>Serveri, radne stanice, virtualizacija i backup sustavi.</p>
-        </article>
-        <article class="service-card">
-          <div class="service-icon" aria-hidden="true">
-            <i class="fa-solid fa-network-wired"></i>
-          </div>
-          <h4>Mrežna rješenja</h4>
-          <p>LAN/WAN, Wi-Fi, firewall i zaštita podataka.</p>
-        </article>
-        <article class="service-card">
-          <div class="service-icon" aria-hidden="true">
-            <i class="fa-solid fa-laptop-code"></i>
-          </div>
-          <h4>Web &amp; digital</h4>
-          <p>Poslovne stranice, e-trgovina i digitalne integracije.</p>
-        </article>
-        <article class="service-card">
-          <div class="service-icon" aria-hidden="true">
-            <i class="fa-solid fa-headset"></i>
-          </div>
-          <h4>Podrška &amp; održavanje</h4>
-          <p>Monitoring, održavanje i brza lokalna intervencija.</p>
-        </article>
-        <article class="service-card">
-          <div class="service-icon" aria-hidden="true">
-            <i class="fa-solid fa-cube"></i>
-          </div>
-          <h4>3D printanje</h4>
-          <p>3D ispis prema potrebama vašeg projekta — javite nam se za dogovor.</p>
-        </article>
+        <div class="services-grid">
+          <article class="service-card" data-number="01">
+            <span class="service-icon" aria-hidden="true"><i class="fa-solid fa-server"></i></span>
+            <h3>IT infrastruktura</h3>
+            <p>Serveri, računala i sigurnosne kopije.</p>
+          </article>
+          <article class="service-card" data-number="02">
+            <span class="service-icon" aria-hidden="true"><i class="fa-solid fa-network-wired"></i></span>
+            <h3>Mrežna rješenja</h3>
+            <p>Mreže, Wi-Fi i zaštita podataka.</p>
+          </article>
+          <article class="service-card" data-number="03">
+            <span class="service-icon" aria-hidden="true"><i class="fa-solid fa-laptop-code"></i></span>
+            <h3>Web &amp; digital</h3>
+            <p>Web-stranice, trgovine i digitalne integracije.</p>
+          </article>
+          <article class="service-card" data-number="04">
+            <span class="service-icon" aria-hidden="true"><i class="fa-solid fa-headset"></i></span>
+            <h3>Podrška &amp; održavanje</h3>
+            <p>Održavanje i brza tehnička pomoć.</p>
+          </article>
+          <article class="service-card" data-number="05">
+            <span class="service-icon" aria-hidden="true"><i class="fa-solid fa-screwdriver-wrench"></i></span>
+            <h3>Dijagnostika kvarova i održavanje računala</h3>
+            <p>Otkrivanje i otklanjanje kvarova te redovno održavanje računala.</p>
+          </article>
+          <article class="service-card" data-number="06">
+            <span class="service-icon" aria-hidden="true"><i class="fa-solid fa-comments"></i></span>
+            <h3>Konzultantske usluge</h3>
+            <p>Stručno savjetovanje pri odabiru i planiranju IT rješenja.</p>
+          </article>
+          <article class="service-card" data-number="07">
+            <span class="service-icon" aria-hidden="true"><i class="fa-solid fa-cube"></i></span>
+            <h3>3D printanje</h3>
+            <p>3D ispis po mjeri.</p>
+          </article>
+        </div>
       </div>
     </section>
 
@@ -280,6 +278,7 @@
                   <div class="sc-pos-wrap">
                     <img src="assets/pos-terminal.png" alt="Fiskator POS handheld terminal" class="sc-pos-photo" />
                   </div>
+                  <p class="sc-compliance-note"><i class="fa-solid fa-check" aria-hidden="true"></i> Fiskalizacija 2.0</p>
                 </div>
 
                 <!-- Slide 2: Računalna aplikacija -->
@@ -288,6 +287,7 @@
                   <div class="showcase-image-wrap">
                     <img src="assets/fiskator.png" alt="Fiskator desktop" class="showcase-image" />
                   </div>
+                  <p class="sc-compliance-note"><i class="fa-solid fa-check" aria-hidden="true"></i> Fiskalizacija 2.0</p>
                 </div>
 
                 <!-- Slide 3: Mobilna aplikacija -->
@@ -296,6 +296,7 @@
                   <div class="sc-phone-wrap">
                     <img src="assets/mob.png" alt="Fiskator mobilna aplikacija na telefonu" class="sc-mobile-app-photo" />
                   </div>
+                  <p class="sc-compliance-note"><i class="fa-solid fa-check" aria-hidden="true"></i> Fiskalizacija 2.0</p>
                 </div>
 
               </div>
@@ -318,7 +319,7 @@
     <section class="payment-strip" aria-label="Načini plaćanja i sigurnost">
       <div class="payment-strip-inner">
         <div class="payment-strip-top">
-          <p class="payment-strip-message">Sve kartice i svi novčanici. I onaj gost koji plaća satom.</p>
+          <p class="payment-strip-message">Kartice i digitalni novčanici — jednostavno i sigurno.</p>
           <ul class="payment-brands" aria-label="Podržani načini plaćanja">
             <li class="payment-brand payment-brand--visa" aria-label="Visa">
               <svg fill="#1A1F71" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-labelledby="visaLogoTitle">
@@ -379,34 +380,104 @@
       </div>
     </section>
 
+    <section class="faq-section" id="faq" aria-labelledby="faq-title">
+      <div class="faq-inner">
+        <div class="faq-heading">
+          <span class="section-label">Imate pitanje?</span>
+          <h2 id="faq-title">Česta pitanja</h2>
+          <p>Brzi odgovori prije nego nam se javite.</p>
+        </div>
+
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary>
+              <span class="faq-question">Koje IT usluge nudite?</span>
+              <span class="faq-toggle" aria-hidden="true"></span>
+            </summary>
+            <div class="faq-answer">
+              <p>Pomažemo s računalima, serverima, mrežama, web-stranicama, održavanjem, Fiskator rješenjima i 3D printanjem.</p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary>
+              <span class="faq-question">Pružate li podršku na daljinu?</span>
+              <span class="faq-toggle" aria-hidden="true"></span>
+            </summary>
+            <div class="faq-answer">
+              <p>Da. Otvorite stranicu <a href="rustdesk.html">Udaljena podrška</a> i pošaljite nam ID uređaja te opis poteškoće.</p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary>
+              <span class="faq-question">Kako mogu zatražiti ponudu?</span>
+              <span class="faq-toggle" aria-hidden="true"></span>
+            </summary>
+            <div class="faq-answer">
+              <p><a href="#kontakt">Pošaljite nam upit</a> s kratkim opisom što vam treba. Javit ćemo vam se kako bismo dogovorili sljedeće korake.</p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary>
+              <span class="faq-question">Koliko koštaju vaše usluge?</span>
+              <span class="faq-toggle" aria-hidden="true"></span>
+            </summary>
+            <div class="faq-answer">
+              <p>Cijena ovisi o vrsti i opsegu posla. Nakon što čujemo detalje, možemo vam pripremiti ponudu.</p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary>
+              <span class="faq-question">Kada ste dostupni?</span>
+              <span class="faq-toggle" aria-hidden="true"></span>
+            </summary>
+            <div class="faq-answer">
+              <p>Redovno radno vrijeme je ponedjeljak–petak od 08:00 do 17:00. Hitne intervencije dostupne su 24/7.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
     <footer class="footer" id="kontakt">
       <div class="footer-hero">
         <div class="footer-title-wrap">
           <h2 class="footer-title footer-title-animation">Kontaktirajte nas</h2>
         </div>
-        <p class="footer-sub">Spremni za sljedeći korak? Javite nam se — odgovaramo u roku 24 sata.</p>
+        <p class="footer-sub">Trebate IT podršku? Razgovarajmo.</p>
       </div>
 
       <div class="footer-grid">
         <div class="footer-contact">
           <div class="contact-block">
-            <span class="contact-label">Lokacija</span>
-            <p>Našice, Hrvatska</p>
+            <span class="contact-icon" aria-hidden="true"><i class="fa-regular fa-envelope"></i></span>
+            <div class="contact-detail">
+              <span class="contact-label sr-only">E-mail</span>
+              <p><a href="mailto:info@statorit.hr">info@statorit.hr</a></p>
+            </div>
           </div>
           <div class="contact-block">
-            <span class="contact-label">Telefon</span>
-            <p>
-              <a class="contact-phone-link" href="tel:+385917220389">+385 91 722 0389<span>Patrik · bacc. inf.</span></a>
-              <a class="contact-phone-link" href="tel:+385917292941">+385 91 729 2941<span>David · bacc. inf.</span></a>
-            </p>
+            <span class="contact-icon" aria-hidden="true"><i class="fa-solid fa-mobile-screen-button"></i></span>
+            <div class="contact-detail">
+              <span class="contact-label sr-only">Telefon</span>
+              <p>
+                <a class="contact-phone-link" href="tel:+385917220389">+385 91 722 0389<span>Patrik · bacc. inf.</span></a>
+                <a class="contact-phone-link" href="tel:+385917292941">+385 91 729 2941<span>David · bacc. inf.</span></a>
+              </p>
+            </div>
           </div>
           <div class="contact-block">
-            <span class="contact-label">E-mail</span>
-            <p><a href="mailto:info@statorit.hr">info@statorit.hr</a></p>
+            <span class="contact-icon" aria-hidden="true"><i class="fa-solid fa-house"></i></span>
+            <div class="contact-detail">
+              <span class="contact-label sr-only">Lokacija</span>
+              <p>Našice, Hrvatska</p>
+            </div>
           </div>
           <div class="contact-block">
-            <span class="contact-label">Radno vrijeme</span>
-            <p>Pon – Pet: 08:00 – 17:00<br/>Hitne intervencije: 24/7</p>
+            <span class="contact-icon" aria-hidden="true"><i class="fa-regular fa-clock"></i></span>
+            <div class="contact-detail">
+              <span class="contact-label sr-only">Radno vrijeme</span>
+              <p>Pon – Pet: 08:00 – 17:00<br/>Hitne intervencije: 24/7</p>
+            </div>
           </div>
         </div>
 
@@ -414,33 +485,50 @@
           <div class="remote-support-shortcut">
             <div>
               <h3>Treba vam udaljena podrška?</h3>
-              <p>RustDesk podrška ima zaseban obrazac za ID uređaja i opis poteškoće.</p>
+              <p>Za udaljenu pomoć i prijavu poteškoće.</p>
             </div>
             <a class="btn btn-primary" href="rustdesk.html" target="_blank" rel="noopener noreferrer">Udaljena podrška</a>
           </div>
           <form class="footer-form" id="generalInquiryForm" data-email-form action="https://formsubmit.co/ajax/info@statorit.hr" method="POST">
-            <h3 class="support-form-title">Pošaljite nam opći upit</h3>
-            <p class="support-form-intro">Opišite svoje pitanje ili IT izazov, a mi ćemo vam se javiti.</p>
-            <input type="hidden" name="_subject" value="Novi opći upit sa stranice Stator IT">
-            <input type="hidden" name="_template" value="table">
-            <div class="support-honeypot" aria-hidden="true">
-              <label for="inquiryWebsite">Ostavite ovo polje prazno</label>
-              <input id="inquiryWebsite" type="text" name="_honey" tabindex="-1" autocomplete="off">
-            </div>
-            <label>
-              <span>Ime i prezime</span>
-              <input type="text" name="name" placeholder="Vaše ime" autocomplete="name" required />
-            </label>
-            <label>
-              <span>E-mail za odgovor</span>
-              <input type="email" name="email" placeholder="vas@email.hr" autocomplete="email" required />
-            </label>
-            <label>
-              <span>Poruka</span>
-              <textarea name="message" rows="4" maxlength="2000" placeholder="Kako vam možemo pomoći?" required></textarea>
-            </label>
-            <p class="support-form-status" role="status" aria-live="polite"></p>
-            <button type="submit" class="btn btn-primary">Pošaljite upit</button>
+            <details class="inquiry-disclosure">
+              <summary class="inquiry-heading">
+                <span class="inquiry-heading-copy">
+                  <span class="contact-label">JAVITE NAM SE</span>
+                  <span class="support-form-title">Pošaljite upit</span>
+                  <span class="support-form-intro">Ispunite polja i javit ćemo vam se.</span>
+                </span>
+                <span class="inquiry-toggle-icon" aria-hidden="true"><i class="fa-solid fa-plus"></i></span>
+              </summary>
+              <div class="inquiry-panel">
+                <div class="inquiry-panel-inner">
+                  <input type="hidden" name="_subject" value="Novi opći upit sa stranice Stator IT">
+                  <input type="hidden" name="_template" value="table">
+                  <div class="support-honeypot" aria-hidden="true">
+                    <label for="inquiryWebsite">Ostavite ovo polje prazno</label>
+                    <input id="inquiryWebsite" type="text" name="_honey" tabindex="-1" autocomplete="off">
+                  </div>
+                  <div class="inquiry-fields">
+                    <label>
+                      <span>Ime i prezime <span class="field-required" aria-hidden="true">*</span></span>
+                      <input type="text" name="name" placeholder="Npr. Ana Horvat" autocomplete="name" required />
+                    </label>
+                    <label>
+                      <span>E-mail za odgovor <span class="field-required" aria-hidden="true">*</span></span>
+                      <input type="email" name="email" autocomplete="email" required />
+                    </label>
+                    <label class="inquiry-message">
+                      <span>Poruka <span class="field-required" aria-hidden="true">*</span></span>
+                      <textarea name="message" rows="4" maxlength="2000" placeholder="Napišite kratko kako vam možemo pomoći." required></textarea>
+                    </label>
+                  </div>
+                  <p class="support-form-status" role="status" aria-live="polite"></p>
+                  <button type="submit" class="btn btn-primary">
+                    <span>Pošalji upit</span>
+                    <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                  </button>
+                </div>
+              </div>
+            </details>
           </form>
         </div>
       </div>
@@ -450,7 +538,7 @@
       </div>
 
       <div class="footer-bottom">
-        <a href="#hero" class="footer-logo">
+        <a href="index.html" class="footer-logo">
           <img src="assets/logo-light.png" alt="Stator IT" />
         </a>
         <p class="copyright">© 2026 Stator IT. Sva prava pridržana.</p>
@@ -464,6 +552,6 @@
   </main>
 
   <script src="form-submit.js"></script>
-  <script src="main.js?v=20261002-2047"></script>
+  <script src="main.js?v=20261003-1235"></script>
 </body>
 </html>
